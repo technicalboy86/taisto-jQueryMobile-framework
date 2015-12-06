@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="themes/taisto.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.custom.structure.css" />
+		<link rel="stylesheet" href="themes/idangerous.swiper.css">
+		<!--<link rel="stylesheet" href="themes/splashscreen.css">-->
+		<link rel="stylesheet" href="themes/jquery.youtubeChannel.css" />
+        <script src="cordova.js"></script>
+		<script src="jquery.js"></script>
+		<script src="jquery.mobile.custom.js"></script>
+		<script defer src="idangerous.swiper.js"></script>
+		<script defer src="idangerous.swiper.scrollbar-2.0.js"></script>
+		<script defer src="jquery.splashscreen.js"></script>
+		<script defer src="script.js"></script>
+		<style>
+		#Content {
+		position:fixed;
+		left:0%;
+		top:85px;
+		right:0%;
+		bottom:62px;
+		}
+		#Content_noOverflow {
+		position:fixed;
+		left:0%;
+		top:85px;
+		right:0%;
+		bottom:62px;
+		overflow: hidden;
+		}
+		.Challenge {
+		background: #17bfe1;
+		height:80%;
+		margin-bottom:0%;
+		margin-right:2%;
+		margin-left:2%;
+		padding-top:1em;
+		padding-bottom:1em;
+		padding-right:2em;
+		padding-left:2em;
+		-webkit-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		-moz-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		text-align: center;
+		}
+		#Videoline {
+		background: #17bfe1;
+		margin-top:1em;
+		margin-bottom:1em;
+		margin-right:1em;
+		margin-left:1em;
+		padding-top:0.6em;
+		padding-bottom:0.5em;
+		padding-right:0.5em;
+		padding-left:1em;
+		-webkit-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		-moz-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		text-align: left;
+		}
+		.Challenge_Completed {
+		height:80%;
+		background: #80e117;
+		margin-top:0%;
+		margin-bottom:0%;
+		margin-right:2%;
+		margin-left:2%;
+		padding-top:1em;
+		padding-bottom:1em;
+		padding-right:2em;
+		padding-left:2em;
+		-webkit-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		-moz-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		text-align: center;
+		}
+		table {
+		border-collapse: collapse; border-spacing: 0;
+		width: 100%;
+		margin: 0 auto;
+		}
+		#logo img {
+		width  : 100%;
+		height : auto;
+		}
+		#header {
+		 background: transparent;
+		 border: 0;
+		}
+		td {
+		  padding: 0 0 0 0;
+		  text-align: left;
+		  border: 0px solid #000;
+		}
+		tr:nth-child(even) {
+		  background: #ec438f;
+		}
+		.hidden {
+		display: none;
+		}
+		.aright {
+		text-align: right;
+		}
+		.meter { 
+			height: 10px;  /* Can be anything */
+			position: relative;
+			background: #17bfe1;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			padding: 0px;
+			-webkit-box-shadow: inset 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+			-moz-box-shadow: inset 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+			box-shadow: inset 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		}
+		.meter > span {
+			display: block;
+			height: 100%;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			background-color: rgb(255,255,255);
+			background-image: -webkit-gradient(
+			  linear,
+			  left bottom,
+			  left top,
+			  color-stop(0, rgb(255,255,255)),
+			  color-stop(1, rgb(233,233,233))
+			 );
+			background-image: -moz-linear-gradient(
+			  center bottom,
+			  rgb(255,255,255) 37%,
+			  rgb(233,233,233) 69%
+			 );
+			-webkit-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			-moz-box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			box-shadow: 
+			  inset 0 2px 9px  rgba(255,255,255,0.3),
+			  inset 0 -2px 6px rgba(0,0,0,0.4);
+			position: relative;
+			overflow: hidden;
+		}
+		.meter > span:after, .animate > span > span {
+			content: "";
+			position: absolute;
+			top: 0; left: 0; bottom: 0; right: 0;
+			background-image: 
+			   -webkit-gradient(linear, 0 0, 100% 100%, 
+			      color-stop(.25, rgba(255, 255, 255, .2)), 
+			      color-stop(.25, transparent), color-stop(.5, transparent), 
+			      color-stop(.5, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, rgba(255, 255, 255, .2)), 
+			      color-stop(.75, transparent), to(transparent)
+			   );
+			background-image: 
+				-moz-linear-gradient(
+				  -45deg, 
+			      rgba(255, 255, 255, .2) 25%, 
+			      transparent 25%, 
+			      transparent 50%, 
+			      rgba(255, 255, 255, .2) 50%, 
+			      rgba(255, 255, 255, .2) 75%, 
+			      transparent 75%, 
+			      transparent
+			   );
+			z-index: 1;
+			-webkit-background-size: 50px 50px;
+			-moz-background-size: 50px 50px;
+			-webkit-animation: move 2s linear infinite;
+			   -webkit-border-top-right-radius: 8px;
+			-webkit-border-bottom-right-radius: 8px;
+			       -moz-border-radius-topright: 8px;
+			    -moz-border-radius-bottomright: 8px;
+			           border-top-right-radius: 8px;
+			        border-bottom-right-radius: 8px;
+			    -webkit-border-top-left-radius: 20px;
+			 -webkit-border-bottom-left-radius: 20px;
+			        -moz-border-radius-topleft: 20px;
+			     -moz-border-radius-bottomleft: 20px;
+			            border-top-left-radius: 20px;
+			         border-bottom-left-radius: 20px;
+			overflow: hidden;
+		}
+				
+		.animate > span:after {
+			display: none;
+		}
+		
+		@-webkit-keyframes move {
+		    0% {
+		       background-position: 0 0;
+		    }
+		    100% {
+		       background-position: 50px 50px;
+		    }
+		}
+		.nostripes > span > span, .nostripes > span:after {
+			-webkit-animation: none;
+			background-image: none;
+		}
+		.completed_number {
+		font-size: 1em;
+		line-height: 0.5em;
+	         font-family: yourmovefontregular/*{global-font-family}*/;
+		}
+		#image_slide_content { 
+		height: 10em; 
+		position: relative; 
+		top: 0; 
+		right: 0; 
+		bottom: 0;
+		background-image:url(images/tutorial1.png);
+		background-size:128px;
+		background-position:center;
+		background-repeat:no-repeat;
+		}
+		#image_slide_content_mail { 
+		height: 8em; 
+		position: relative; 
+		top: 0; 
+		right: 0; 
+		bottom: 0;
+		background-image:url(images/sendmail.png);
+		background-size:128px;
+		background-position:center;
+		background-repeat:no-repeat;
+		}
+		#tsemppariviesti_kuva { 
+		height: 12em; 
+		position: relative; 
+		top: 0; 
+		right: 0; 
+		bottom: 0;
+		background-image:url(images/tsemppariviesti_kuva_01.png);
+		background-size:100%;
+		background-position:center;
+		background-repeat:no-repeat;
+		}
+		</style>
+</head>
+<body>
+	<!---------------FIRST PAGE------------------->
+	
+	<div data-url="Haasteet" data-role="page" data-theme="a" id="Haasteet" class="my-page">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<img src="images/header_profiili.png" height="75" width="127" class="ui-btn-right">
+			<img src="images/taisto_logo_small.png" height="75" width="120" class="ui-btn-left">
+		</div>
+		
+		<div data-role="content" data-theme="a" id="Content_noOverflow">
+			<div class="challenges swiper-container">
+  			<div class="swiper-wrapper">
+  				
+					<!--Tutorial Slide-->
+      		<div class="swiper-slide">
+						<div class="Challenge">
+        			<h1 id="Taso_Header_1">Aloita Swaippaamalla</h1>
+							<br>
+							<div id="image_slide_content">
+							<br>
+							</div>
+							TAISTO-sovelluksella voit seurata harjoitteluasi ja lähettää halutessasi tiedot esim. opettajallesi tai itsellesi.
+						</div>
+      		</div>
+      		
+	  			<!--First Slide-->
+      		<!--<div class="swiper-slide">
+						<div class="Challenge">
+        			<h1 id="Taso_Header_1">Tasot</h1>
+        			
+							<p>Lankku: Taso 4</p>
+							<div class="meter">
+								<span style="width: 45%"></span>
+							</div>
+							
+							<p>Punnerrus: Taso 2</p>
+							<div class="meter">
+								<span style="width: 25%"></span>
+							</div>
+								
+							<p>Tanko: Taso 3</p>
+							<div class="meter">
+								<span style="width: 35%"></span>
+							</div>
+							
+							<p>Hyppynaru: Taso 1</p>
+							<div class="meter">
+								<span style="width: 15%"></span>
+							</div>
+						</div>
+      		</div>-->
+      		
+      		<!--(Lankku)Planking Slide-->
+      		<!--<div class="swiper-slide">
+						<div id="divPlanking" class="Challenge">
+        			<h1 id="planking_title">Lankku: 1</h1>
+							<img src="images/icon_lankku.png" height="80" width="140">
+							<p id="planking_desc">Tee 200 toistoa</p>
+							<div class="meter">
+								<span id="planking_meter" style="width: 25%"></span>
+							</div>
+							<p class="completed_number" id="planking_complete">0/200</p>
+							<a href="#Tulokset_Lankku" id="planking_ready" data-transition="pop" style="visibility: hidden;" class="ui-btn  ui-shadow ui-btn-inline ui-icon-edit ui-btn-icon-left ui-btn-b">Lisää!</a>
+						</div>
+      		</div>-->
+      		
+				  <!--Punnerrus(Pushup) Challenge-->
+			    <!--<div class="swiper-slide">
+						<div id="divPushup" class="Challenge_Completed">
+							<h1 id="pushup_title">Punnerrus: 1</h1>
+							<img src="images/icon_punnerrus.png" height="80" width="120">
+							<p id="pushup_desc">Tee 200 toistoa</p>
+							<div class="meter">
+								<span id="pushup_meter" style="width: 100%"></span>
+							</div>
+							<p class="completed_number" id="pushup_complete">200/200</p>
+							<a href="#popupViesti1" id="pushup_ready" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn  ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-b">Valmis!</a>
+						</div>
+      		</div>-->
+      		
+      		
+	        <!--Tanko(Hanging) Slide-->
+      		<!--<div class="swiper-slide">
+						<div id="divHanging" class="Challenge">
+        			<h1 id="hanging_title">Tanko: 1</h1>
+							<img src="images/icon_tanko.png" height="80" width="80">
+							<p id="hanging_desc">Tee 200 toistoa</p>
+							<div class="meter">
+								<span style="width: 25%" id="hanging_meter"></span>
+							</div>
+							<p class="completed_number" id="hanging_complete">0/200</p>
+							<a href="#Tulokset_Lankku" id="hanging_ready" data-transition="pop" style="visibility: hidden;" class="ui-btn  ui-shadow ui-btn-inline ui-icon-edit ui-btn-icon-left ui-btn-b">Lisää!</a>
+						</div>
+      		</div>-->
+      		
+      		
+	        <!--Naru(Jumping) Slide-->
+      		<!--<div class="swiper-slide">
+						<div id="divJumping" class="Challenge">
+        			<h1 id="jumping_title">Naru: 1</h1>
+							<img src="images/icon_naru.png" height="80" width="80">
+							<p id="jumping_desc">Tee 200 toistoa</p>
+							<div class="meter">
+								<span id="jumping_meter" style="width: 25%"></span>
+							</div>
+							<p class="completed_number" id="jumping_complete">0/200</p>
+							<a href="#Tulokset_Lankku" id="jumping_ready" data-transition="pop" style="visibility: hidden;" class="ui-btn  ui-shadow ui-btn-inline ui-icon-edit ui-btn-icon-left ui-btn-b">Lisää!</a>
+						</div>
+      		</div>-->
+      		
+	  			<!--Send Mail Slide-->
+      		<!--<div class="swiper-slide">
+						<div class="Challenge">
+        			<h1 id="Taso_Header_1">Lähetä tuloksesi</h1>
+							<div id="image_slide_content_mail">
+							</div>
+							<p>Voit lähettää tuloksesi itsellesi tai opetajallesi sähköpostitse</p>
+							<a href="#sendmail" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn  ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-b">Lähetä</a>
+						</div>
+      		</div>-->
+  			</div><!--swiper-wrapper end-->
+			</div><!--swiper-container end-->
+		</div><!--Content end-->
+		
+		<div data-role="popup" id="popupViesti1" data-overlay-theme="b" data-theme="b" data-dismissible="false" data-corners="false" style="max-width:400px;">
+			<div role="main" class="ui-content">
+				<h1>Loistavaa!</h1>
+				<div id="tsemppariviesti_kuva">
+					<br>
+				</div>
+				<p id="divCoachMessage"></p><p><br></p>
+				<!--<a href="#" class="ui-btn  ui-shadow ui-btn-b" data-rel="back" onclick="setContent()">Ok</a>-->
+  				<a href="#" class="ui-btn  ui-shadow ui-btn-b" data-rel="back" onclick="setSlideContent()">Ok</a>
+			</div>
+		</div>
+		
+		<div data-role="popup" id="sendmail" data-overlay-theme="b" data-theme="b" data-corners="false" style="max-width:400px;">
+			<div role="main" class="ui-content">
+				<h1>Lähetä tuloksesi</h1>
+				<p>Lähetä keräämäsi tiedot opettajallesi</p>
+				<form action="">
+					<p><input type="text" name="name" placeholder="Nimesi..." id="txtName"></p>	
+					<p><input type="text" name="e-mail" placeholder="Sähköposti..." id="txtEmail"></p>
+					<a href="#" class="ui-btn  ui-shadow ui-btn-b" id="btnSend" onclick="sendMsg()">Ok</a>
+				</form>
+			</div>
+		</div>
+	
+		<div data-role="footer" data-id="foobar1" data-position="fixed" data-tap-toggle="false" data-theme="b">
+			<div data-role="navbar" data-theme="b">
+				<ul>
+					<li><a href="#Haasteet" class="ui-btn-active ui-state-persist"><img src="images/menu_profile_a.png" height="30" width="31"></a></li>
+					<li><a href="#Tulokset"><img src="images/menu_results_b.png" height="30" width="32"></a></li>
+					<li><a href="#Vinkit"><img src="images/menu_play_b.png" height="30" width="32"></a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div><!--First Page End-->
+
+	<!-----SECOND PAGE--------->
+	<div id="Tulokset" data-url="Tulokset" data-role="page" data-theme="a">
+		<div data-role="header" data-position="fixed" data-tap-toggle="false">
+			<img src="images/header_tulokset.png" height="75" width="127" class="ui-btn-right">
+			<img src="images/taisto_logo_small.png" height="75" width="120" class="ui-btn-left">
+		</div>
+		
+		<div data-role="content" id="Content">
+			<div id="muut">
+				<div class="DivParent">
+    			<div class="DivWhichNeedToBeVerticallyAligned">
+						<table>
+							<tr>
+								<td>
+									<p>
+									<a href="#Tulokset_Lankku" onclick="onActivityPage(0)" class="ui-btn  ui-shadow ui-icon-edit ui-btn-icon-left ui-btn-a">Lankku</a>
+									<a href="#Tulokset_Lankku" onclick="onActivityPage(4)" class="ui-btn  ui-shadow ui-icon-edit ui-btn-icon-left ui-btn-a">Punnerrus</a>
+									<a href="#Tulokset_Lankku" onclick="onActivityPage(2)" class="ui-btn  ui-shadow ui-icon-edit ui-btn-icon-left ui-btn-a">Leuat</a>
+									<a href="#Tulokset_Lankku" onclick="onActivityPage(6)" class="ui-btn  ui-shadow ui-icon-edit ui-btn-icon-left ui-btn-a">Naruhyppely</a>
+									</p>
+								</td>
+							</tr>
+						</table>
+    			</div>
+    			<div class="DivHelper"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="footer" data-id="foobar1" data-position="fixed" data-tap-toggle="false" data-theme="b">
+			<div data-role="navbar" data-theme="b">
+				<ul>
+					<li><a href="#Haasteet"><img src="images/menu_profile_b.png" height="30" width="31"></a></li>
+					<li><a href="#Tulokset" class="ui-btn-active ui-state-persist"><img src="images/menu_results_a.png" height="30" width="32"></a></li>
+					<li><a href="#Vinkit"><img src="images/menu_play_b.png" height="30" width="32"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!----------THIRD PAGE----------->
+	<div id="Tulokset_Lankku" data-url="Tulokset_Lankku" data-role="page" data-theme="d">
+		<div data-position="fixed" data-tap-toggle="false" id="Header">
+			<a href="#Tulokset"><img id="imgRightCorner" src="images/icon_lankku.png" height="80" width="140" class="ui-btn-right"></a>
+			<a href="#Tulokset"><img src="images/header_tulokset_back.png" height="75" width="120" class="ui-btn-left"></a>
+		</div>
+		
+		<div data-role="content" data-theme="a" id="Content">
+			<p>
+			Ennatyksesi: <span id="spHighscore"></span>
+			</p>
+			<table>
+				<tr>
+					<td>
+						<form id="contacts-form">
+						  <!-- Lead story block -->
+		  				<select name="treeni" id="select-choice-a" data-native-menu="true" data-inline="true">
+								<!--<option value="Jalat Suorina">Jalat Suorina</option>
+								<option value="Polvet Maassa">Polvet Maassa</option>-->
+							</select>
+							
+					    <!-- secondary story block #1 -->
+  						<select name="tulos" id="select-choice-b" data-native-menu="true" data-inline="true">
+  						</select>
+    
+							<!-- reset button <input type="button" id="contacts-op-discard" value="Tyhjennä" data-icon="delete" data-iconpos="notext" data-inline="true"/>-->
+							<input type="submit" id="contacts-op-save" value="Tallenna" data-theme="c" data-icon="plus" data-inline="true" data-iconpos="notext"/>
+							<input type="hidden" name="id_entry" value="0" />
+						</form>
+					</td>
+				</tr>
+			</table>
+			
+			<table id="contacts-table">
+			</table>
+		</div>
+		
+		<div data-role="footer" data-id="foobar1" data-position="fixed" data-tap-toggle="false" data-theme="b">
+			<div data-role="navbar" data-theme="b">
+				<ul>
+				<li><a href="#Haasteet"><img src="images/menu_profile_b.png" height="30" width="31"></a></li>
+				<li><a href="#Tulokset" class="ui-btn-active ui-state-persist"><img src="images/menu_results_a.png" height="30" width="32"></a></li>
+				<li><a href="#Vinkit"><img src="images/menu_play_b.png" height="30" width="32"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--Video Page-->
+	<div id="Vinkit" data-url="Vinkit" data-role="page" data-theme="a" tabindex="0" class="ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed" style="padding-top: 0px; padding-bottom: 53px; min-height: 671px;">
+		
+		<div data-position="fixed" data-tap-toggle="false">
+			<img src="images/header_vinkit.png" height="75" width="127" class="ui-btn-right">
+			<img src="images/taisto_logo_small.png" height="75" width="120" class="ui-btn-left">
+		</div>
+		
+		<div data-role="content" data-theme="a" id="Content" class="ui-content ui-body-a" role="main">
+			<div id="youtube-channel" class="yt-channel-holder">
+				<ul class="yt-channel-list" id="videoContainer">
+					
+	<!--<div id="Vinkit" data-url="Vinkit" data-role="page" data-theme="a">
+		<div data-position="fixed" data-tap-toggle="false">
+			<img src="images/header_vinkit.png" height="75" width="127" class="ui-btn-right">
+			<img src="images/taisto_logo_small.png" height="75" width="120" class="ui-btn-left">
+		</div>
+		
+		<div data-role="content" data-theme="a" id="Content">
+			<div id="Videoline">
+				<table>
+					<tr>
+						<td>
+							<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a>
+						</td>
+						<td> 
+							Taisto treenivideo 2014
+						</td>
+					</tr>
+				</table>
+   		</div>-->
+   		
+			<!--      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>
+			      <div id="Videoline">
+					<table><tr><td>
+					<a href="_blank"><img src="images/video_placeholder.png" height="46" width="81"></a></td><td> Taisto treenivideo 2014</td>
+					</tr></table>
+			   </div>-->
+		</div>
+		
+		<div data-role="footer" data-id="foobar1" data-position="fixed" data-tap-toggle="false" data-theme="b">
+			<div data-role="navbar" data-theme="b">
+				<ul>
+					<li><a href="#Haasteet"><img src="images/menu_profile_b.png" height="30" width="31"></a></li>
+					<li><a href="#Tulokset"><img src="images/menu_results_b.png" height="30" width="32"></a></li>
+					<li><a href="#Vinkit" class="ui-btn-active ui-state-persist"><img src="images/menu_play_a.png" height="30" width="32"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--<div id="splash">
+    <div id="promoIMG">
+    </div>
+	</div>-->
+
+	<script>
+		var action_type = '';
+		var move_index = 0;
+		var cur_index = 0;
+		var cur_id = '';
+		var typeString = {0:'Jalat Suorina',1:'Polvet Maassa',2:'Veto',3:'Polvet Maassa',4:'Jalat Suorina',5:'Polvet Maassa',6:'Naruhyppely'};
+		
+		//var clientId = '8bcb86de-23a7-4fe6-81f9-90d3821e2b27';
+		var clientId = 'foobar';
+		var playerId = '52f0c6a63004b7d941c6f2d7';
+		var token = '';
+		var activityType = 0;
+		var $table = document.getElementById("contacts-table");
+	</script>
+	
+<script type="text/javascript" src="tulokset.js"></script>
+<script type="text/javascript" src="slides.js"></script>
+<script>
+	var challengesSwiper;
+		$(function() {
+			$(".meter > span").each(function() {
+				$(this)
+					.data("origWidth", $(this).width())
+					.width(0)
+					.animate({
+						width: $(this).data("origWidth")
+					}, 1200);
+			});
+		});
+</script>
+</body>
+</html>

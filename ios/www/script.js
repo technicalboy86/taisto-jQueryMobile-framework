@@ -1,0 +1,954 @@
+var myUserData = null;
+var cTypeId;
+//var baseURL = 'http://taisto-bitmotion.rhcloud.com';
+var baseURL = 'http://tst-healthgamer.rhcloud.com';
+
+var userData = {
+					  "status" : "OK",
+					  "action" : "/player/challengeStatus/53423c84e4b050e35ccfcf09",
+					  "challengeStatus" : [
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : {
+					        "texts" : [
+					          {
+					            "lang" : "en",
+					            "label" : "Act 0 lvl 1",
+					            "description" : "Challenge for act 0 for level 1"
+					          }
+					        ],
+					        "goal" : 10,
+					        "id" : "53413c644e043c7a319e04b1",
+					        "modified" : null,
+					        "minLimit" : 0,
+					        "activityType" : 0,
+					        "level" : 1,
+					        "modifier" : null,
+					        "creator" : null,
+					        "created" : null,
+					        "measurement" : 2,
+					        "maxLimit" : 0
+					      },
+					      "currentTotal" : 0,
+					      "activityType" : 0,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : null,
+					      "currentTotal" : 0,
+                                           "activityType" : 1,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : null,
+					      "currentTotal" : 0,
+                                           "activityType" : 2,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : {
+					        "texts" : [
+					          {
+					            "lang" : "en",
+					            "label" : "Act 3 lvl 1",
+					            "description" : "Challenge for act 3 for level 1"
+					          }
+					        ],
+					        "goal" : 2,
+					        "id" : "53413c654e043c7a319e04b5",
+					        "modified" : null,
+					        "minLimit" : 0,
+					        "activityType" : 3,
+					        "level" : 1,
+					        "modifier" : null,
+					        "creator" : null,
+					        "created" : null,
+					        "measurement" : 2,
+					        "maxLimit" : 0
+					      },
+					      "currentTotal" : 0,
+                                           "activityType" : 3,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : {
+					        "texts" : [
+					          {
+					            "lang" : "en",
+					            "label" : "Act 4 lvl 1",
+					            "description" : "Challenge for act 4 for level 1"
+					          }
+					        ],
+					        "goal" : 10,
+					        "id" : "53413c654e043c7a319e04b9",
+					        "modified" : null,
+					        "minLimit" : 0,
+					        "activityType" : 4,
+					        "level" : 1,
+					        "modifier" : null,
+					        "creator" : null,
+					        "created" : null,
+					        "measurement" : 2,
+					        "maxLimit" : 0
+					      },
+					      "currentTotal" : 0,
+                                           "activityType" : 4,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : null,
+					      "currentTotal" : 0,
+                                           "activityType" : 5,
+                                           "coach_message":""
+					    },
+					    {
+					      "currentLevel" : 0,
+					      "challenge" : {
+					        "texts" : [
+					          {
+					            "lang" : "en",
+					            "label" : "Act 6 lvl 1",
+					            "description" : "Challenge for act 6 for level 1"
+					          }
+					        ],
+					        "goal" : 40,
+					        "id" : "53413c654e043c7a319e04bd",
+					        "modified" : null,
+					        "minLimit" : 0,
+					        "activityType" : 6,
+					        "level" : 1,
+					        "modifier" : null,
+					        "creator" : null,
+					        "created" : null,
+					        "measurement" : 2,
+					        "maxLimit" : 0
+					      },
+					      "currentTotal" : 40,
+                                           "activityType" : 6,
+                                           "coach_message":""
+					    }
+					  ]
+					};
+
+var activityJson = {
+	'0':{
+        "status":"OK",
+        "action":"/activity/list",
+        "activities":[
+                {
+                        "result":10,
+                        "type":0,
+                        "id":"52f524493004625b4128c0b9",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"time"
+                },
+                {
+                        "result":11,
+                        "type":1,
+                        "id":"52f524493004625b4128c0ba",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"time"
+                },
+                {
+                        "result":12,
+                        "type":1,
+                        "id":"52f524493004625b4128c0bb",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"count"
+                },
+                {
+                        "result":13,
+                        "type":0,
+                        "id":"52f524493004625b4128c0bc",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"time"
+                },
+                {
+                        "result":14,
+                        "type":0,
+                        "id":"52f524493004625b4128c0bd",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"count"
+                },
+                {
+                        "result":15,
+                        "type":1,
+                        "id":"52f524493004625b4128c0be",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"count"
+                },
+                {
+                        "result":16,
+                        "type":0,
+                        "id":"52f524493004625b4128c0bf",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"count"
+                },
+                {
+                        "result":91,
+                        "type":1,
+                        "id":"52f524f63004625b4128c0c0",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"count"
+                }
+        ]
+      }
+};
+
+var videoData = {
+  "status" : "OK",
+  "action" : "/taisto/videos",
+  "videos" : [
+            {
+              "length" : 45,
+              "title" : "Lankku video",
+              "description" : "Video about lankku",
+              "url" : "https://www.youtube.com/watch?v=Rw6NZKLJHs0&feature=youtube_gdata_player"
+            },
+            {
+              "length" : 30,
+              "title" : "Lankku video",
+              "description" : "Video about lankku",
+              "url" : "https://www.youtube.com/watch?v=Xhbpgry_UvA&feature=youtube_gdata_player"
+            },
+            {
+              "length" : 80,
+              "title" : "Lankku video",
+              "description" : "Video about lankku",
+              "url" : "https://www.youtube.com/watch?v=n-uT7U02D2w&feature=youtube_gdata_player"
+            },
+            {
+              "length" : 230,
+              "title" : "Lankku video",
+              "description" : "Video about lankku",
+              "url" : "https://www.youtube.com/watch?v=iS8cGiFSGSA&feature=youtube_gdata_player"
+            }
+          ]
+};
+
+userData = null;
+activityJson = {};
+
+var coach_message = {};
+							
+function loadActivityData()
+{
+	$('#contacts-table').empty();
+	
+	var temp = activityJson[activityType]['activities'];
+	
+	console.log(temp);
+	var index = 1;
+	var high = 0;
+	$.each(temp, function(i, entry){
+		
+		console.log(entry);
+		if(high < entry['result'])
+			high = entry['result'];
+			
+		table_add(entry, index);
+		index++;
+	});
+	
+	action_type = 'add';
+	move_index = index;
+	
+	if(activityType == 6)
+		$('#spHighscore').html(high+" hyppyä/min");
+	else if(activityType == 0)
+		$('#spHighscore').html(high+" sekuntia");
+	else
+		$('#spHighscore').html(high);
+	$.mobile.loading("hide");
+}
+
+function onActivityPage(id)
+{
+	activityType = id;
+	
+	var img = '';
+	if(id == 0)
+		img = 'icon_lankku.png';
+	else if(id == 2)
+		img = 'icon_tanko.png';
+	else if(id == 4)
+		img = 'icon_punnerrus.png';
+	else if(id == 6)
+		img = 'icon_naru.png';
+		
+	$('#imgRightCorner').attr('src','images/'+img);
+}
+
+function setContent()
+{
+	console.log(userData['challengeStatus']);
+	/*challengesSwiper.removeSlide(3);
+	challengesSwiper.removeSlide(4);
+	challengesSwiper.removeSlide(5);
+	challengesSwiper.removeSlide(6);*/
+	
+	challengesSwiper.removeAllSlides();
+	//$.mobile.loading("show");
+	var content = '<div class="Challenge">';
+	content = content + '<h1 id="Taso_Header_1">Aloita Swaippaamalla</h1>';
+	content = content + '<br>';
+	content = content + '<div id="image_slide_content">';
+	content = content + '<br>';
+	content = content + '</div>';
+	content = content + 'TAISTO-sovelluksella voit seurata harjoitteluasi ja lähettää halutessasi tiedot esim. opettajallesi tai itsellesi.';
+	content = content + '</div>';
+	
+	var newSlide = challengesSwiper.createSlide(content);
+	newSlide.append();
+	
+	content = '<div class="Challenge">';
+	content = content + '<h1 id="Taso_Header_1">Tasot</h1>';
+	
+	$.each(userData['challengeStatus'], function(i, data){
+		if((data['challenge'] != null) && (data['activityType'] == 0 || data['activityType'] == 2 || data['activityType'] == 4 || data['activityType'] == 6))
+		{
+			//title = data['challenge']['texts']['0']['label'];
+			switch(data['activityType'])
+			{
+				case 0:
+					//title = 'Planking: ' + data['challenge']['level'];
+                    title = 'Lankku: ' + data['challenge']['level'];
+					break;
+				case 2:
+					//title = 'Pole hanging: ' + data['challenge']['level'];
+                    title = 'Leuat: ' + data['challenge']['level'];
+                    break;
+				case 4:
+					//title = 'Pushup: ' + data['challenge']['level'];
+                    title = 'Punnerrus: ' + data['challenge']['level'];
+					break;
+				case 6:
+					//title = 'Rope jumping: ' + data['challenge']['level'];
+                    title = 'Naru: ' + data['challenge']['level'];
+					break;
+			}
+	  	
+	  	var percent;
+	  	var val;
+	  	if(data['challenge']['measurement'] == 0)
+	  		val = data['currentAverage'];
+	  	else if(data['challenge']['measurement'] == 1)
+	  		val = data['currentCount'];
+	  	else if(data['challenge']['measurement'] == 2)
+	  		val = data['currentTotal'];
+			else
+				val = data['currentTotal'];
+	  		
+	  	percent = val / data['challenge']['goal'] * 100;
+			
+			if ( percent >= 100)
+				percent = 100;
+				
+			content = content + '<p id="t_'+data['activityType']+'_title">' + title + '</p>';
+			content = content + '<div class="meter">';
+			content = content + '<span id="t_'+data['activityType']+'_meter" style="width: ' + percent + '%"></span>';
+			content = content + '</div>';
+		}
+	});
+	
+	content = content + '</div></div>';
+	var newSlide = challengesSwiper.createSlide(content);
+	//challengesSwiper.insertSlideAfter(0, newSlide);
+	newSlide.append();
+
+	$.each(userData['challengeStatus'], function(i, data){
+		if((data['challenge'] != null) && (data['activityType'] == 0 || data['activityType'] == 2 || data['activityType'] == 4 || data['activityType'] == 6))
+		{
+			var typeId = data['activityType'];
+			
+			var title = '';
+			var imgsrc = 'images/';
+			switch(typeId)
+			{
+				case 0:
+					//title = 'Planking: ' + data['challenge']['level'];
+                    title = 'Lankku: ' + data['challenge']['level'];
+					imgsrc = imgsrc + 'icon_lankku.png';
+					break;
+				case 2:
+					//title = 'Pole hanging: ' + data['challenge']['level'];
+                    title = 'Leuat: ' + data['challenge']['level'];
+					imgsrc = imgsrc + 'icon_tanko.png';
+					break;
+				case 4:
+					//title = 'Pushup: ' + data['challenge']['level'];
+                    title = 'Punnerrus: ' + data['challenge']['level'];
+					imgsrc = imgsrc + 'icon_punnerrus.png';
+					break;
+				case 6:
+					//title = 'Rope jumping: ' + data['challenge']['level'];
+                    title = 'Naru: ' + data['challenge']['level'];
+					imgsrc = imgsrc + 'icon_naru.png';
+					break;
+			}
+			//title = data['challenge']['texts']['0']['label'];
+			
+			//var percent = (data['currentTotal'] % data['challenge']['goal'] )/data['challenge']['goal'] * 100;
+			
+			var percent;
+	  	var val;
+	  	if(data['challenge']['measurement'] == 0)
+	  		val = data['currentAverage'];
+	  	else if(data['challenge']['measurement'] == 1)
+	  		val = data['currentCount'];
+	  	else if(data['challenge']['measurement'] == 2)
+	  		val = data['currentTotal'];
+			else
+				val = data['currentTotal'];
+	  		
+	  	percent = val / data['challenge']['goal'] * 100;
+			//var percent = data['currentTotal'] / (data['challenge']['goal'] * data['challenge']['level']) * 100;
+			
+			if ( percent >= 100)
+			{
+				css = "Challenge_Completed";
+				percent = 100;
+			}
+			else
+				css = "Challenge";
+				
+			var content = '<div id="slider' + typeId + '_frame" class="' + css + '">';
+			content = content + '<h1 id="slider' + typeId + '_title">' + title + '</h1>';
+			content = content + '<img src="' + imgsrc + '" height="80" width="100">';
+			content = content + '<p><span id="slider' + typeId + '_desc">' + data['challenge']['texts']['0']['description'] + '</span></p>';
+			content = content + '<div class="meter">';
+			
+			content = content + '<span id="slider' + typeId + '_meter" style="width:' + percent + '%"></span>';
+			content = content + '</div>';
+			
+			content = content + '<p class="completed_number"><span id="slider' + typeId + '_complete">' + val + '/' + data['challenge']['goal'] + '</p></p>';
+			
+			if ( percent >= 100)
+			{
+				content = content + '<a href="#popupViesti1" id="' + typeId + '_ready" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-mini ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-b" aria-haspopup="true" aria-owns="popupViesti1" aria-expanded="false" onclick="fillMessage('+typeId+')">Valmis!</a>';
+				content = content + '<div style="display: none;" id="popupViesti1-placeholder"></div>';
+				content = content + '<br><a href="#Tulokset_Lankku" id="btn' + typeId + '_ready" onclick="onActivityPage(' + typeId + ')" data-transition="pop" class="ui-mini ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-edit ui-btn-icon-left ui-btn-b" style="display:none">Lisää!</a>';
+			}
+			else
+				content = content + '<a href="#Tulokset_Lankku" id="btn' + typeId + '_ready" onclick="onActivityPage(' + typeId + ')" data-transition="pop" class="ui-mini ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-edit ui-btn-icon-left ui-btn-b">Lisää!</a>';
+			
+			content = content + '</div>';
+			
+			var newSlide = challengesSwiper.createSlide(content);
+			//challengesSwiper.insertSlideAfter(1, newSlide);
+			newSlide.append();
+		}
+	});
+	
+	content = '<div class="Challenge">';
+	content = content + '<h1 id="Taso_Header_1">Lähetä tuloksesi</h1>';
+	content = content + '<div id="image_slide_content_mail">';
+	content = content + '</div>';
+	content = content + '<p>Voit lähettää tuloksesi itsellesi tai opetajallesi sähköpostitse</p>';
+	content = content + '<a href="#sendmail" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn  ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left ui-btn-b">Lähetä</a>';
+	/*content = content + '<div data-role="popup" id="sendmail" data-overlay-theme="b" data-theme="b" data-corners="false" style="max-width:400px;">';		
+	content = content + '<div role="main" class="ui-content">';
+	content = content + '<h1>Lähetä tuloksesi</h1>';
+	content = content + '<p>Lähetä keräämäsi tiedot opettajallesi</p>';
+	content = content + '<form action="">';
+	content = content + '<p><input type="text" name="name" placeholder="Nimesi..." id="txtName"></p>';
+	content = content + '<p><input type="text" name="e-mail" placeholder="Sähköposti..." id="txtEmail"></p>';
+	content = content + '<a href="#" class="ui-btn  ui-shadow ui-btn-b" id="btnSend" onclick="sendMsg()">Ok</a>';
+	content = content + '</form>';
+	content = content + '</div>';
+	content = content + '</div>';*/
+	content = content + '</div>';
+	
+	var newSlide = challengesSwiper.createSlide(content);
+	newSlide.append();
+    
+    challengesSwiper.reInit();
+	//$.mobile.loading("hide");
+}
+
+function initControls()
+{
+	$('#select-choice-a').empty();
+	var $select = $('#select-choice-b');
+	$select.empty();
+	
+	switch(activityType)
+	{
+		case 0:
+			$('#activity_title').text('Lankku');
+			
+			$('#select-choice-a').append('<option value="0" selected>Jalat Suorina</option>');
+			$('#select-choice-a').append('<option value="1">Polvet Maassa</option>');
+			
+			for(var i=1; i<=500; i++)
+				$select.append('<option value="' +i+ '">'+i+' s</option>');
+			break;
+		case 2:
+			$('#activity_title').text('Leuat');
+			
+			$('#select-choice-a').append('<option value="2" selected>Veto</option>');
+			$('#select-choice-a').append('<option value="3">Riippumalla</option>');
+			
+			for(var i=1; i<=100; i++)
+				$select.append('<option value="' +i+ '">'+i+'</option>');
+				
+			break;
+		case 6:
+			$('#activity_title').text('Naruhyppely');
+	    
+	    $('#select-choice-a').append('<option value="6" selected>Naruhyppely</option>');
+	    
+	    for(var i=1; i<=200; i++)
+				$select.append('<option value="' +i+ '">'+i+'</option>');
+			break;
+		case 4:
+			$('#activity_title').text('Punnerrus');
+			
+			$('#select-choice-a').append('<option value="4" selected>Jalat Suorina</option>');
+			$('#select-choice-a').append('<option value="5">Polvet Maassa</option>');
+	    
+	    for(var i=1; i<=100; i++)
+				$select.append('<option value="' +i+ '">'+i+'</option>');
+			break;
+	}
+	
+	$('#select-choice-a').selectmenu('refresh',true);
+
+	$select.selectmenu('refresh',true);
+	
+	$('#contacts-table').empty();
+}
+
+function appInit()
+{
+	$.mobile.loading("show");
+	//clientId = device.uuid;
+    //alert(device.uuid);
+    
+	$.ajax({
+      type: "POST",
+      url: baseURL+'/rest/taisto/init/'+clientId,
+      dataType: "json",
+      success: function(json){
+      	//console.log(json);
+      	
+        playerId = json['playerId'];
+        clientId = json['clientId'];
+        token = json['token'];
+        //navigator.notification.alert(token);
+        
+				$.ajax({
+			      beforeSend: function(xhrObj){
+			              xhrObj.setRequestHeader("token", clientId + ";" + token);
+			      },
+			      type: "GET",
+			      url: baseURL+'/rest/player/challengeStatus/'+playerId,
+			      dataType: "json",
+			      success: function(json){
+			      	console.log(json);
+		          //navigator.notification.alert(json);
+		          userData = json;
+		          myUserData = json;
+		          
+		          setContent();
+		          //console.log(json);
+		          $.mobile.loading("hide");
+			      },
+			 			error: function(json)
+			      {
+			      	//console.log(json);
+			      	navigator.notification.alert("Fail to Load Data!", function(){}, "Taisto", "OK");
+			      	$.mobile.loading("hide");
+			      }
+				});
+      },
+      error: function()
+      {
+          //myUserData = userData;
+           
+           //setContent();
+      	navigator.notification.alert("Fail to Register!", function(){}, "Taisto", "OK");
+      	$.mobile.loading("hide");
+      }
+	});
+}
+
+function loadVideos()
+{
+	console.log(videoData);
+	
+	$('#videoContainer').empty();
+	$.each(videoData['videos'], function(i, data){
+		var temp = data['url'].split('?');
+		var tt = temp[1].split('&');
+		
+		var id = '';
+		for(var i = 0; i < tt.length; i++)
+		{
+			var ss = tt[i].split('=');
+			if(ss[0] == 'v')
+			{
+				id = ss[1];
+				break;
+			}
+		}
+		
+		var min = parseInt(data['length']/60);
+		var sec = data['length'] - min * 60;
+		$('#videoContainer').append('<li id="videoid-' + id + '" class="yt-channel-video"><a target="_blank" href="" onclick="openLink(\'' + data['url'] + '\')" class="ui-link"><span class="thumb-wrap"><img class="vid-thumb" alt="' + data['description'] + '" src="http://img.youtube.com/vi/' + id + '/1.jpg"><span class="vid-duration">' + min + ':' + sec + '</span></span><div class="vid-details"><span class="vid-title">' + data['title'] + '</span><span class="vid-views" style="position:absolute;left:0px;top:30px">' + data['description'] + '</span></div></a></li>');
+	});
+}
+function openLink(link)
+{
+    console.log(link);
+    var ref = window.open(link, '_blank', 'location=yes');
+}
+function fillMessage(typeId)
+{
+  cTypeId = typeId;
+	$.each(userData['challengeStatus'], function(i, data){
+		if(data['activityType'] == typeId)
+		{
+			var str = data['coach_message'].split(':');
+			$('#divCoachMessage').html(str[1]);
+			
+			/*$('#tsemppariviesti_kuva').css("background-image", "url(http://taisto-bitmotion.rhcloud.com/images/"+str[0]+".jpg)");*/
+
+           $('#tsemppariviesti_kuva').css("background-image", "url(http://tst-healthgamer.rhcloud.com/images/"+str[0]+".jpg)");
+
+			//data['challenge']['level'] = parseInt(data['currentTotal'] / data['challenge']['goal']) + 1;
+			//data['currentLevel'] = parseInt(data['currentTotal'] / data['challenge']['goal']);
+			//data['currentLevel'] = parseInt(data['currentTotal'] / data['challenge']['goal']);
+		}
+	});
+}
+
+function setSlideContent()
+{
+    $('#slider' + cTypeId + '_frame').removeClass('Challenge_Completed').addClass('Challenge');
+    $('#'+cTypeId+'_ready').css('display','none');
+    $('#btn'+cTypeId+'_ready').css('display','inline');
+    
+    /*$.each(userData['challengeStatus'], function(i, data){
+        if(data['activityType'] == cTypeId)
+        {
+           switch(data['activityType'])
+           {
+           case 0:
+                //title = 'Planking: ' + data['challenge']['level'];
+                title = 'Lankku: ' + data['challenge']['level'];
+                break;
+           case 2:
+                //title = 'Pole hanging: ' + data['challenge']['level'];
+                title = 'Leuat: ' + data['challenge']['level'];
+                break;
+           case 4:
+                //title = 'Pushup: ' + data['challenge']['level'];
+                title = 'Punnerrus: ' + data['challenge']['level'];
+                break;
+           case 6:
+                //title = 'Rope jumping: ' + data['challenge']['level'];
+                title = 'Naru: ' + data['challenge']['level'];
+                break;
+           }
+           
+           $('#t_' + cTypeId + '_title').html(title);
+           $('#slider' + cTypeId + '_title').html(title);
+           var percent = data['currentTotal'] / (data['challenge']['goal'] * data['challenge']['level']) * 100;
+           $('#slider' + cTypeId + '_meter').css('width',percent + '%');
+           $('#t_' + cTypeId + '_meter').css('width',percent + '%');
+           $('#slider' + cTypeId + '_complete').html(data['currentTotal'] + '/' + (data['challenge']['goal'] * data['challenge']['level']));
+        }
+    });*/
+}
+
+function refreshContent()
+{
+	console.log("REFRESH");
+	console.log(userData);
+  $.each(userData['challengeStatus'], function(i, data){
+  	if((data['challenge'] != null) && (data['activityType'] == 0 || data['activityType'] == 2 || data['activityType'] == 4 || data['activityType'] == 6))
+  	{
+			var percent;
+	  	var val;
+	  	if(data['challenge']['measurement'] == 0)
+	  		val = data['currentAverage'];
+	  	else if(data['challenge']['measurement'] == 1)
+	  		val = data['currentCount'];
+	  	else if(data['challenge']['measurement'] == 2)
+	  		val = data['currentTotal'];
+			else
+			{
+				val = data['currentTotal'];
+				//val = data['currentCount'];
+			}
+	  	
+	  	var type = data['activityType'];
+	  	percent = val / data['challenge']['goal'] * 100;
+			
+			if ( percent >= 100)
+			{
+				percent = 100;
+				
+				$('#slider' + type + '_frame').removeClass('Challenge').addClass('Challenge_Completed');
+				$('#btn'+type+'_ready').css('display','none');
+		    $('#'+type+'_ready').css('display','inline');
+			}
+			else
+			{
+				$('#slider' + type + '_frame').removeClass('Challenge_Completed').addClass('Challenge');
+		    $('#'+type+'_ready').css('display','none');
+		    $('#btn'+type+'_ready').css('display','inline');
+			}
+	  	
+	  	switch(data['activityType'])
+			{
+			case 0:
+				//title = 'Planking: ' + data['challenge']['level'];
+				title = 'Lankku: ' + data['challenge']['level'];
+				break;
+			case 2:
+				//title = 'Pole hanging: ' + data['challenge']['level'];
+				title = 'Leuat: ' + data['challenge']['level'];
+				break;
+			case 4:
+				//title = 'Pushup: ' + data['challenge']['level'];
+				title = 'Punnerrus: ' + data['challenge']['level'];
+				break;
+			case 6:
+				//title = 'Rope jumping: ' + data['challenge']['level'];
+				title = 'Naru: ' + data['challenge']['level'];
+				break;
+			}
+           
+			$('#t_' + type + '_title').html(title);
+			$('#slider' + type + '_title').html(title);
+           
+			$('#slider' + type + '_meter').css('width',percent + '%');
+			$('#t_' + type + '_meter').css('width',percent + '%');
+			$('#slider' + type + '_complete').html(val + '/' + data['challenge']['goal']);
+		}
+	});
+}
+
+function sendMsg()
+{
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($('#txtEmail').val()))
+	{
+		$.mobile.loading("show");
+		$.ajax({
+      beforeSend: function(xhrObj){
+              xhrObj.setRequestHeader("token", clientId + ";" + token);
+      },
+      type: "POST",
+      url: baseURL+'/rest/player/send',
+      dataType: "json",
+      data: {name: $('#txtName').val(), email: $('#txtEmail').val()},
+      success: function(json){
+      	console.log(json);
+      	navigator.notification.alert("Thanks! Lähetetty", function(){}, "Taisto", "OK");
+        $.mobile.loading("hide");
+      },
+ 			error: function(json)
+      {
+      	//console.log(json);
+      	navigator.notification.alert("Lähetys epäonnistui. Kokeile hetken kuluttua uudestaan", function(){}, "Taisto", "OK");
+      	$.mobile.loading("hide");
+      }     
+		});
+	}
+	else
+	{
+		navigator.notification.alert("You have entered an invalid email address!", function(){}, "Taisto", "OK");
+		$('#btnSend').attr('data-rel',"");
+		return false;
+	}
+	$('#btnSend').attr('data-rel',"back");
+	return true;
+}
+
+$(document).ready(function(){
+	// Calling our splashScreen plugin and
+	// passing an array with images to be shown
+	
+	/*$('#Haasteet').splashScreen({
+		textLayers : [
+			'images/splash_hg_logo.png',
+			'images/splash_valo_logo.png'
+		]
+	});*/
+	
+	
+	//setContent();
+	
+	$("#Haasteet").on("pageshow",function() {
+		$.mobile.loading("show");
+		//if(myUserData != null)
+		if(userData != null)
+		{
+			//userData = myUserData;
+			//setContent();
+			
+				$.ajax({
+		      beforeSend: function(xhrObj){
+		              xhrObj.setRequestHeader("token", clientId + ";" + token);
+		      },
+		      type: "GET",
+		      url: baseURL+'/rest/player/challengeStatus/'+playerId,
+		      dataType: "json",
+		      success: function(json){
+	          userData = json;
+	          refreshContent();
+	          console.log(json);
+	          $.mobile.loading("hide");
+		      },
+		      error: function()
+		      {
+		      	navigator.notification.alert("Fail to Load Data!", function(){}, "Taisto", "OK");
+		      	$.mobile.loading("hide");
+		      }
+			});
+    }
+    else
+		{
+			$.ajax({
+	      beforeSend: function(xhrObj){
+	              xhrObj.setRequestHeader("token", clientId + ";" + token);
+	      },
+	      type: "GET",
+	      url: baseURL+'/rest/player/challengeStatus/'+playerId,
+	      dataType: "json",
+	      success: function(json){
+          userData = json;
+          setContent();
+          //console.log(json);
+          console.log(json);
+          $.mobile.loading("hide");
+	      },
+	      error: function()
+	      {
+	      	navigator.notification.alert("Fail to Load Data!", function(){}, "Taisto", "OK");
+	      	$.mobile.loading("hide");
+	      }
+			});
+   	}
+	});
+	
+	$("#Tulokset_Lankku").on("pageshow",function() {
+		initControls();
+		
+		console.log(activityJson[activityType]);
+		if(activityJson[activityType] == null)
+		{
+			$.mobile.loading("show");
+			$.ajax({
+		      beforeSend: function(xhrObj){
+		              xhrObj.setRequestHeader("token", clientId + ";" + token);
+		      },
+		      type: "GET",
+		      url: baseURL+'/rest/activity/list/' + activityType,
+		      dataType: "json",
+		      success: function(json){
+		        activityJson[activityType] = json;
+		        //navigator.notification.alert(json);
+		        loadActivityData();
+		      },
+		 			error: function(json)
+		      {
+		      	console.log(json);
+		      	navigator.notification.alert("Fail to Load Activity Data!", function(){}, "Taisto", "OK");
+		      	$.mobile.loading("hide");
+		      }
+			});
+			/*activityJson[activityType] = {"activities":[
+                {
+                        "result":10,
+                        "type":0,
+                        "id":"52f524493004625b4128c0b9",
+                        "modifier":null,
+                        "created":0,
+                        "clientId":"1234",
+                        "modified":null,
+                        "creator":null,
+                        "playerId":"52f523a53004625b4128c0b7",
+                        "resultType":"time"
+                }]};
+                
+			console.log(activityJson);
+			loadActivityData();*/
+		}
+		else
+			loadActivityData();
+	});
+	
+	$("#Vinkit").on("pageshow",function() {
+		$.mobile.loading("show");
+		$.ajax({
+	      beforeSend: function(xhrObj){
+	              xhrObj.setRequestHeader("token", clientId + ";" + token);
+	      },
+	      type: "GET",
+	      url: baseURL+'/rest/taisto/videos',
+	      dataType: "json",
+	      success: function(json){
+	        console.log(json);
+	        videoData = json;
+	        loadVideos();
+	        $.mobile.loading("hide");
+	      },
+	 			error: function(json)
+	      {
+	      	console.log(json);
+	      	navigator.notification.alert("Fail to Load Activity Data!", function(){}, "Taisto", "OK");
+	      	$.mobile.loading("hide");
+	      }
+		});
+		
+		//loadVideos();
+	});
+});

@@ -1,0 +1,32 @@
+@charset "utf-8";
+.yt-channel-holder {
+		margin-top:0;
+		margin-bottom:6em;
+		margin-right:0;
+		margin-left:0;
+		}
+.yt-channel-holder .yt-channel-list { list-style-position: outside; list-style-type: none; margin: 0; padding: 0; }
+.yt-channel-holder .yt-channel-list .yt-channel-title a { display: none; text-decoration: none; color: #fff; }
+.yt-channel-holder .yt-channel-list .yt-channel-video {
+		background: #17bfe1;
+		margin-top:1em;
+		margin-bottom:1em;
+		margin-right:1em;
+		margin-left:1em;
+		padding-top:1em;
+		padding-bottom:1em;
+		padding-right:1em;
+		padding-left:1em;
+		-webkit-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		-moz-box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		box-shadow: 0 1px 15px /*{global-box-shadow-size}*/ rgba(0,0,0,0.3) /*{global-box-shadow-color}*/;
+		text-align: center;
+ }
+.yt-channel-holder .yt-channel-list .yt-channel-video a { display: block; overflow: hidden; text-decoration: none; color: #fff; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap { position: relative; float: left; margin: 0 1em 0 0; padding: 4px; background-color: #000; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap img.vid-thumb { width: 81px; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap span.vid-duration { position: absolute; bottom: 3px; right: 3px; font-size: 12px; font-weight: bold; background-color: #444; color: #eee; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .vid-details { position: relative; float: left; width: 140px; height: 82px; color: #fff;}
+.yt-channel-holder .yt-channel-list .yt-channel-video a .vid-details span.vid-title { position: absolute; top: 0; left: 0; font-size: 12px; }
+
+.yt-channel-holder .yt-channel-list .yt-channel-copy { display: none; height: 12px; line-height: 10px; font-size: 10px; text-align: right; color: #444; }
